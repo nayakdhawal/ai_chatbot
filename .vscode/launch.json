@@ -10,7 +10,7 @@
             "request": "launch",
             "name": "Launch Chrome against localhost",
             // "url": "http://192.168.29.123:3000",
-            "url": "https://ai-chatbot-phi-jet.vercel.app/",
+            "url": "https://ai-chatbot-6y727dk2e-nayakdhawal-2664s-projects.vercel.app/",
             "webRoot": "${workspaceFolder}"
         }
     ]
