@@ -3,16 +3,19 @@
 @tailwind utilities;
 
 :root {
-  /* Custom color palette for futuristic chatbot */
-  --chat-bg: #1a1a1a;
-  --chat-surface: #2a2a2a;
-  --chat-accent: #4a9eff;
-  --chat-text: #e0e0e0;
-  --chat-muted: #666666;
-  --user-message: #2d3748;
-  --bot-message: #374151;
-  --error: #ef4444;
-  --success: #10b981;
+  /* Light and bright color palette */
+  --chat-bg: #ffffff;
+  --chat-surface: #f8fafc;
+  --chat-accent: #3b82f6;
+  --chat-text: #1e293b;
+  --chat-muted: #64748b;
+  --user-message: #eff6ff;
+  --bot-message: #ffffff;
+  --error: #fef2f2;
+  --success: #f0fdf4;
+  --border: #e2e8f0;
+  --shadow: rgba(0, 0, 0, 0.03);
+  --shadow-lg: rgba(0, 0, 0, 0.08);
 
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -50,6 +53,20 @@
 }
 
 .dark {
+  /* Light dark theme - not too dark */
+  --chat-bg: #f8fafc;
+  --chat-surface: #ffffff;
+  --chat-accent: #3b82f6;
+  --chat-text: #1e293b;
+  --chat-muted: #64748b;
+  --user-message: #eff6ff;
+  --bot-message: #ffffff;
+  --error: #fef2f2;
+  --success: #f0fdf4;
+  --border: #e2e8f0;
+  --shadow: rgba(0, 0, 0, 0.05);
+  --shadow-lg: rgba(0, 0, 0, 0.1);
+
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.145 0 0);
@@ -94,15 +111,37 @@
   }
 }
 
-/* Custom animations for chatbot */
+/* Modern minimal animations */
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(12px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
@@ -117,27 +156,36 @@
   }
 }
 
-@keyframes pulse-glow {
+@keyframes pulse {
   0%,
   100% {
     opacity: 1;
   }
   50% {
-    opacity: 0.5;
+    opacity: 0.6;
   }
 }
 
-@keyframes scan-line {
+@keyframes shimmer {
   0% {
-    transform: translateY(-100%);
+    background-position: -200px 0;
   }
   100% {
-    transform: translateY(100%);
+    background-position: calc(200px + 100%) 0;
   }
 }
 
+/* Modern minimal animation classes */
 .message-enter {
-  animation: fadeInUp 0.3s ease-out;
+  animation: fadeInUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.message-slide {
+  animation: slideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.message-scale {
+  animation: scaleIn 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .typing-dot {
@@ -152,12 +200,41 @@
   animation-delay: -0.16s;
 }
 
-.pulse-glow {
-  animation: pulse-glow 2s ease-in-out infinite;
+.pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-.scan-line {
-  animation: scan-line 8s linear infinite;
+.shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Modern minimal utility classes */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.shadow-minimal {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.shadow-minimal-lg {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.border-minimal {
+  border: 1px solid var(--border);
+}
+
+.rounded-minimal {
+  border-radius: 8px;
+}
+
+.rounded-minimal-lg {
+  border-radius: 12px;
 }
 
 /* Screen reader only content */
